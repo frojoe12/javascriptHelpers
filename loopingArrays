@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+Javascript Helpers
+</body>
+<script type="text/javascript">
+ let myArray = [1,'apple','orange',8,'car'];
+ 
+ 
+ // basic loop through array
+ for (let i=0; i < myArray.length; i++) {
+ 	console.log(i);
+ 	console.log(myArray[i]);
+ }
+ 
+ 
+ // forEach -- mutates original array
+ myArray.forEach(arrayPart => {
+ 	console.log(arrayPart);
+ });
+ 
+ 
+ // map -- creates new array
+ let myArrayMap1 = myArray.map(arrayPart => {
+ 	console.log(arrayPart);
+ });
+ 
+ 
+ // map -- creat new array -- add to new array
+ let myArrayMap2 = myArray.map(arrayPart => {
+ 	return `${arrayPart} - new`;
+ });
+ console.log(myArrayMap2);
+ 
+ 
+ // filter -- create new array with filtered elements
+ let myArrayFiltered = myArray.filter(arrayPart => {
+ 	if (typeof arrayPart === "string") {return arrayPart;}
+ });
+ console.log(myArrayFiltered);
+ 
+ 
+ // find -- return first value in array that matches given list
+ let vehicles = ['Honda','Saab','Yamaha','Nissan','Toyota','Suzuki'];
+ let makesMotorbikes = manufacturer => {
+ 	return ['Yamaha','Kawasaki','Suzuki','Enfield','Triumph'].includes(manufacturer);
+ };
+ let motorbikes = vehicles.find(makesMotorbikes);
+ console.log(motorbikes);
+ 
+ // find index of first value -- returns -1 if not found
+console.log(vehicles.findIndex(makesMotorbikes));
+</script>
+</html>
