@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body>
+Javascript Closure
+<div id="root"></div>
+</body>
+<script>
+document.querySelector("#root").textContent="start...";
+
+
+//***************
+//
+
+function outer() {
+    function inner() {
+        return "inner";
+    }
+    return "outer";
+}
+console.log(outer());
+
+function workOutEms(pixels) {
+    let baseValue = 16;
+    function returnEms() {
+        return pixels/baseValue;
+    }
+    return returnEms;
+}
+
+console.log(workOutEms(12));
+console.log(workOutEms(32));
+
+function giveOutEms(pixels) {
+    return pixels/16;
+}
+console.log(giveOutEms(12));
+console.log(giveOutEms(32));
+
+let ems12 = workOutEms(12);
+console.log(ems12());
+
+
+
+// console.log(inner());
+
+</script>
+</html>
