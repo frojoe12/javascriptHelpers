@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body>
+Javascript Objects
+<div id="root"></div>
+</body>
+<script>
+document.querySelector("#root").textContent="start...";
+
+
+//***************
+//
+let Personel = {
+    id: "1",
+    name: "Jon",
+    level: 5,
+    displayPersonel() {
+        return `${this.name} ${this.level}`;
+    }
+}; 
+console.log(Personel.displayPersonel());
+
+function Book(title,pages,author) {
+    this.title = title;
+    this.pages = pages;
+    this.author = author;
+}
+let books = [];
+books.push(new Book("book title",105,"James Herbert"));
+books.push(new Book("another book",120,"Stephen King"));
+console.log(books);
+
+books[0].title;
+book[0]["title"];
+
+</script>
+</html>
