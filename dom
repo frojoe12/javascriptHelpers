@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body>
+Javascript DOM
+<div id="root"></div>
+</body>
+<script>
+document.querySelector("#root").textContent="start...";
+
+
+//***************
+//
+
+window.innerWidth;
+window.open;
+document.nodeName;
+
+document.querySelector("#root");
+document.querySelectorAll("a");
+document.querySelector(".menu .child a");
+
+document.querySelector("#root").id="main";
+//className
+//classList
+
+//***************
+// change with methods
+
+// element.classList.add(item); //
+// element.classList.remove(item); //
+// element.classList.toggle(item); //
+// element.classList.contains(item); //
+// element.hasAttribute(name);
+// element.getAttribute(attributeName) //
+// element.setAttribute(name,value) //
+// element.removeAttribute(name) //
+
+</script>
+</html>
