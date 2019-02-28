@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body>
+Javascript Helpers 2
+<div id="root"></div>
+</body>
+<script>
+document.querySelector("#root").textContent="start...";
+
+//***************
+// typeof
+let variable = "String";
+console.log(typeof variable);
+
+
+// **************
+// XOR
+let a = 1;
+let b = 2;
+function xor(input) {
+    console.log(input);
+    if ((input[0]==input[1]) != (input[2]==input[3]))
+        { console.log("IS XOR");} else {console.log("NOT XOR");}
+}
+
+xor([1,2,3,4]);
+xor([1,1,2,2]);
+xor([1,1,2,3]);
+xor(["a","a","b","c"]);
+
+
+
+
+
+
+
+
+</script>
+</html>
