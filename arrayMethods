@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body>
+Javascript Array Methods
+<div id="root"></div>
+</body>
+<script>
+document.querySelector("#root").textContent="start...";
+
+//***************
+
+let myArray = ["a","bb","car","fruit","telephone"];
+console.log(myArray);
+
+console.log(myArray.length);
+
+myArray.reverse(); // reverse
+console.log(myArray);
+
+myArray.shift(); // removes first value
+console.log(myArray);
+
+myArray.unshift("z","x"); // adds to front of array
+console.log(myArray);
+
+myArray.pop(); // remove last item
+console.log(myArray);
+
+myArray.push("taxi");  // adds to end of array
+console.log(myArray);
+
+myArray.splice(2,1); // removes array index 2
+console.log(myArray);
+
+let myArrayCopy = myArray.slice(); // copy array
+console.log(myArrayCopy);
+console.log( myArray.indexOf("car", 1) ); // return
+
+let myArrayJoin = myArray.join(", "); // return array as string
+console.log(myArrayJoin);
+
+
+
+
+</script>
+</html>
