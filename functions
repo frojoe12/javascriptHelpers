@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body>
+Javascript Array Methods
+<div id="root"></div>
+</body>
+<script>
+document.querySelector("#root").textContent="start...";
+
+
+//***************
+// named function
+function imAFunction(a,b) {
+    let result = a+b;
+    return result;
+}
+
+
+// anonymous functions
+let myResult = function(a,b) {
+    return a+b;
+}
+
+
+//IIFE
+(function() {
+    console.log("run as soon as browser encounters");
+    
+}());
+
+let myResult2 = (function(a,b) {
+    return a + b;
+}(1,3));
+console.log(myResult2);
+
+
+function checkObject(object) {
+
+} 
+
+
+
+</script>
+</html>
