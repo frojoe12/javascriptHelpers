@@ -1,0 +1,71 @@
+
+<html>
+<head>
+</head>
+<body style='padding:0; margin:0; background:#e1e1e1;'>
+
+<div style='font-size:18px; line-height:170%; font-family:tahoma, arial,sans-serif; width:90%; max-width:1100px; margin:0 auto; background:#fff; border:1px solid #ccc;padding:20px;'>
+Amount: <input type='text' id='amount' name='amount' style=' padding:10px;'/>
+<br /><br />
+<div>Salary &pound;<span id='fullamount'>---</span></div>
+<div>After Tax &pound;<span id='aftertax'>---</span></div>
+<div>Monthly &pound;<span id='monthly'>---</span></div>
+<div>Weekly &pound;<span id='weekly'>---</span></div>
+</div>
+
+
+</body>
+<script type='text/javascript'>
+
+var taxband = [
+	{ min : 0, max : 11849, percentage : 0},
+	{ min : 11850, max : 46349, percentage : .2},
+	{ min : 46350, max : 149999, percentage : .4},
+	{ min : 150000, max : 1000000000, percentage : .48}
+	];
+
+var natIns = [
+	{min : 0, max : 8423, percentage : 0},
+	{min : 8424, max : 43003, percentage : .12},
+	{min : 43004, max : 1000000000, percentage : .02}
+	];
+	
+document.querySelector("#amount").addEventListener("change", function() {displayResults(this.value);});	
+
+function workOutCost(fullAmount, typeAmount) {
+	var total = 0;
+	var checkAmount;
+	for (var i = 0 ; i < typeAmount.length ; i++) {
+		checkAmount = 0;
+		if (fullAmount > typeAmount[i].max) {
+			checkAmount = (typeAmount[i].max - typeAmount[i].min) * typeAmount[i].percentage;
+			total += checkAmount;
+		} else if (fullAmount > typeAmount[i].min) {
+			checkAmount = (fullAmount - typeAmount[i].min)  * typeAmount[i].percentage;
+			total += checkAmount;
+		} 
+	}
+	return total;
+}
+
+function afterDeductions(fullAmount) {
+	var nationalInsuranceCost = workOutCost(fullAmount, natIns);
+	var taxCost = workOutCost(fullAmount, taxband);
+	return fullAmount - (nationalInsuranceCost+taxCost);
+}
+
+function displayResults(newvalue) {
+	var fullamount = newvalue;
+	var takehome = afterDeductions(newvalue);
+	var weekly = parseFloat(takehome)/52;
+	var monthly = parseFloat(takehome)/12;
+	document.querySelector("#fullamount").innerHTML = parseFloat(fullamount).toFixed(2);
+	document.querySelector("#aftertax").innerHTML = parseFloat(takehome).toFixed(2);
+	document.querySelector("#monthly").innerHTML = parseFloat(monthly).toFixed(2);
+	document.querySelector("#weekly").innerHTML = parseFloat(weekly).toFixed(2);
+}
+
+
+
+</script>
+</html
