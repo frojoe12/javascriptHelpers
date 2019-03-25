@@ -12,6 +12,7 @@ document.querySelector("#root").textContent="start...";
 
 
 //***************
+// added new comment for git fetch test
 //
 
 function outer() {
