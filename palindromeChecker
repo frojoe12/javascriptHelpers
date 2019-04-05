@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<input type='text' name='palindrome />
+
+
+<p id="root"></p>
+
+<script>
+(function myFunction() {
+  var originalString = "i like it a lot tol a tai eki li";
+  res = originalString.split("");
+  res.reverse("");
+  newString = res.join("");
+  var regex = /\s/gi;
+  newString = newString.replace( regex, "");
+  originalString = originalString.replace( regex, "");
+  
+  if (newString === originalString) {
+    document.getElementById("demo").innerHTML = "Palindrome: " + originalString;
+  } else {
+  	document.getElementById("demo").innerHTML = "Not Palindrome: " + originalString;
+  }
+})()
+</script>
+
+</body>
+</html>
