@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+<head>
+</head>
+<body>
+<div id='root'></div>
+<script>
+
+	class FirstClass {
+		constructor() {
+			this.nameOfClass = "FirstClass"
+		}
+		displayLog(input) {
+			console.log(`${input.log} %c this is an object from {this.nameOfClass}`, 'font-weight:bold; color: #173aba')
+		}
+	}
+	
+	class SecondClass extends FirstClass {
+		constructor() {
+			super()
+			this.nameOfClass = "SecondClass"
+		}
+	}
+	
+	class ThirdClass extends FirstClass {
+		constructor() {
+			super()
+			this.nameOfClass = "ThirdClass"
+		}
+		about() {
+			return "Details about the third class"
+		}
+	}
+	
+	const ROOT = document.querySelector("#root")
+	
+	let logger1 = new FirstClass
+	let logger2 = new SecondClass
+	let logger3 = new ThirdClass
+	
+	logger1.displayLog({log:"1 log output details: "})
+	logger2.displayLog({log:"2 log output details: "})
+	logger3.displayLog({log:"3 log output details: "})
+	
+	ROOT.textContent += logger3.about();
+	
+</script>
+</body>
+</html>
