@@ -7,10 +7,6 @@
 <div style='font-size:18px; line-height:170%; font-family:tahoma, arial,sans-serif; width:90%; max-width:1100px; margin:0 auto; background:#fff; border:1px solid #ccc;padding:20px;'>
 Amount: <input type='text' id='amount' name='amount' style=' padding:10px;'/>
 <br /><br />
-<div>Salary &pound;<span id='fullamount'>---</span></div>
-<div>After Tax &pound;<span id='aftertax'>---</span></div>
-<div>Monthly &pound;<span id='monthly'>---</span></div>
-<div>Weekly &pound;<span id='weekly'>---</span></div>
 <div id="result"></div>	
 </div>
 
@@ -18,7 +14,7 @@ Amount: <input type='text' id='amount' name='amount' style=' padding:10px;'/>
 </body>
 <script type='text/javascript'>
 
-var taxband = [
+var taxBand = [
 	{ min : 0, max : 11849, percentage : 0},
 	{ min : 11850, max : 46349, percentage : .2},
 	{ min : 46350, max : 149999, percentage : .4},
@@ -51,20 +47,29 @@ function workOutCost(fullAmount, typeAmount) {
 
 function afterDeductions(fullAmount) {
 	var nationalInsuranceCost = workOutCost(fullAmount, natIns);
-	var taxCost = workOutCost(fullAmount, taxband);
+	var taxCost = workOutCost(fullAmount, taxBand);
 	return fullAmount - (nationalInsuranceCost+taxCost);
 }
 
-function displayResults(newvalue) {
-	var fullamount = newvalue;
-	var takehome = afterDeductions(newvalue);
-	var weekly = parseFloat(takehome)/52;
-	var monthly = parseFloat(takehome)/12;
-	document.querySelector("#fullamount").innerHTML = parseFloat(fullamount).toFixed(2);
-	document.querySelector("#aftertax").innerHTML = parseFloat(takehome).toFixed(2);
-	document.querySelector("#monthly").innerHTML = parseFloat(monthly).toFixed(2);
-	document.querySelector("#weekly").innerHTML = parseFloat(weekly).toFixed(2);
-	document.querySelector("#result").innerHTML = `Full result...`;
+function displayResults(newValue) {
+	let fullAmount = newValue;
+	let takeHome = afterDeductions(newValue);
+	let weekly = parseFloat(takeHome)/52;
+	let monthly = parseFloat(takeHome)/12;
+	let totalTax = workOutCost(newValue, taxBand);
+	let totalNatIns = workOutCost(newValue, natIns);
+
+	document.querySelector("#result").innerHTML = `
+		---------- <br />
+		Salary: &pound;${parseFloat(fullAmount).toFixed(2)}<br />
+		After tax: &pound;${parseFloat(takeHome).toFixed(2)}<br />
+		---------- <br />
+		Monthly: &pound;${parseFloat(monthly).toFixed(2)}<br />
+		Weekly: &pound;${parseFloat(weekly).toFixed(2)}<br />
+		---------- <br />
+		Tax: &pound;${parseFloat(totalTax).toFixed(2)}<br />
+		National Insurance: &pound;${parseFloat(totalNatIns).toFixed(2)}<br />
+	`;
 }
 
 
