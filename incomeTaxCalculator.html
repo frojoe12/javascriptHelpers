@@ -11,6 +11,7 @@ Amount: <input type='text' id='amount' name='amount' style=' padding:10px;'/>
 <div>After Tax &pound;<span id='aftertax'>---</span></div>
 <div>Monthly &pound;<span id='monthly'>---</span></div>
 <div>Weekly &pound;<span id='weekly'>---</span></div>
+<div id="result"></div>	
 </div>
 
 
@@ -63,6 +64,7 @@ function displayResults(newvalue) {
 	document.querySelector("#aftertax").innerHTML = parseFloat(takehome).toFixed(2);
 	document.querySelector("#monthly").innerHTML = parseFloat(monthly).toFixed(2);
 	document.querySelector("#weekly").innerHTML = parseFloat(weekly).toFixed(2);
+	document.querySelector("#result").innerHTML = `Full result...`;
 }
 
 
