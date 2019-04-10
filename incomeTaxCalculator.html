@@ -54,6 +54,8 @@ function afterDeductions(fullAmount) {
 function displayResults(newValue) {
 	let fullAmount = newValue;
 	let takeHome = afterDeductions(newValue);
+	let monthlyPreTax = newValue/12;
+	let weeklyPreTax = newValue/52;
 	let weekly = parseFloat(takeHome)/52;
 	let monthly = parseFloat(takeHome)/12;
 	let totalTax = workOutCost(newValue, taxBand);
@@ -62,10 +64,13 @@ function displayResults(newValue) {
 	document.querySelector("#result").innerHTML = `
 		---------- <br />
 		Salary: &pound;${parseFloat(fullAmount).toFixed(2)}<br />
-		After tax: &pound;${parseFloat(takeHome).toFixed(2)}<br />
+		Yearly after tax: &pound;${parseFloat(takeHome).toFixed(2)}<br />
 		---------- <br />
-		Monthly: &pound;${parseFloat(monthly).toFixed(2)}<br />
-		Weekly: &pound;${parseFloat(weekly).toFixed(2)}<br />
+		Monthly before tax: &pound;${parseFloat(monthlyPreTax).toFixed(2)}<br />
+		Monthly after tax: &pound;${parseFloat(monthly).toFixed(2)}<br />
+		---------- <br />
+		Weekly before tax: &pound;${parseFloat(weeklyPreTax).toFixed(2)}<br />
+		Weekly after tax: &pound;${parseFloat(weekly).toFixed(2)}<br />
 		---------- <br />
 		Tax: &pound;${parseFloat(totalTax).toFixed(2)}<br />
 		National Insurance: &pound;${parseFloat(totalNatIns).toFixed(2)}<br />
