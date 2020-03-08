@@ -2,19 +2,18 @@
   const arraySet = () => {
     items = []
     isAlreadyIn = newItem => {
-      if (items.includes(newItem)) {
-        return true
-      } else {
-        return false
-      }
+      const isIn = items.includes(newItem) ? true : false
+      return isIn
+    }
+    addItem = item => {
+      !isAlreadyIn(item) ? (items = [...items, item]) : null
+    }
+    displaySet = () => {
+      console.log(items)
     }
     return {
-      addItem: item => {
-        !isAlreadyIn(item) ? (items = [...items, item]) : null
-      },
-      displaySet: () => {
-        console.log(items)
-      }
+      addItem,
+      displaySet
     }
   }
 
