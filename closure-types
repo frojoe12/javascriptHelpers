@@ -1,0 +1,67 @@
+<script>
+  const Stack = () => {
+    let count = 0
+    return {
+      countUp: function() {
+        count++
+      },
+      display: function() {
+        console.log(count)
+      }
+    }
+  }
+
+  const Stack2 = () => {
+    count = 5
+    return {
+      countUp: () => {
+        count++
+      },
+      display: () => {
+        console.log(count)
+      }
+    }
+  }
+
+  const Stack3 = () => {
+    this.count = 15
+    return {
+      countUp: () => {
+        this.count++
+      },
+      display: () => {
+        console.log(count)
+      }
+    }
+  }
+
+  const newStack = Stack()
+  newStack.countUp()
+  newStack.display()
+  newStack.countUp()
+  newStack.countUp()
+  newStack.countUp()
+  newStack.countUp()
+  newStack.countUp()
+  newStack.display()
+
+  const newStack2 = Stack2()
+  newStack2.countUp()
+  newStack2.display()
+  newStack2.countUp()
+  newStack2.countUp()
+  newStack2.countUp()
+  newStack2.countUp()
+  newStack2.countUp()
+  newStack2.display()
+
+  const newStack3 = Stack3()
+  newStack3.countUp()
+  newStack3.display()
+  newStack3.countUp()
+  newStack3.countUp()
+  newStack3.countUp()
+  newStack3.countUp()
+  newStack3.countUp()
+  newStack3.display()
+</script>
