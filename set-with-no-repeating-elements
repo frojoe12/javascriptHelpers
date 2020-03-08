@@ -1,19 +1,20 @@
 <script>
   const arraySet = () => {
     items = []
-    isAlreadyIn = newItem => {
+    isInSet = newItem => {
       const isIn = items.includes(newItem) ? true : false
       return isIn
     }
     addItem = item => {
-      !isAlreadyIn(item) ? (items = [...items, item]) : null
+      !isInSet(item) ? (items = [...items, item]) : null
     }
     displaySet = () => {
       console.log(items)
     }
     return {
       addItem,
-      displaySet
+      displaySet,
+      isInSet
     }
   }
 
@@ -30,6 +31,9 @@
   myItems.addItem('Strawberry')
   myItems.addItem('Strawberry')
   myItems.addItem('Strawberry')
+
+  console.log(`Peach is in set = ${myItems.isInSet('Peach')}`)
+  console.log(`Apple is in set = ${myItems.isInSet('Apple')}`)
 
   myItems.displaySet()
 </script>
