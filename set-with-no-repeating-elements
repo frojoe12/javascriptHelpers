@@ -1,0 +1,36 @@
+<script>
+  const arraySet = () => {
+    items = []
+    isAlreadyIn = newItem => {
+      if (items.includes(newItem)) {
+        return true
+      } else {
+        return false
+      }
+    }
+    return {
+      addItem: item => {
+        !isAlreadyIn(item) ? (items = [...items, item]) : null
+      },
+      displaySet: () => {
+        console.log(items)
+      }
+    }
+  }
+
+  const myItems = arraySet()
+
+  myItems.addItem('Apple')
+  myItems.addItem('Banana')
+  myItems.addItem('Orange')
+  myItems.addItem('Apple')
+  myItems.addItem('Apple')
+  myItems.addItem('Strawberry')
+  myItems.addItem('Strawberry')
+  myItems.addItem('Strawberry')
+  myItems.addItem('Strawberry')
+  myItems.addItem('Strawberry')
+  myItems.addItem('Strawberry')
+
+  myItems.displaySet()
+</script>
