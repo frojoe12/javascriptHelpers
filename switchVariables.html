@@ -1,0 +1,25 @@
+<script>
+let a=5
+let b=10
+
+[a, b] = [b, a]
+// es6 destructure change variables
+console.log(a)
+console.log(b)
+
+// otherwise
+let c = a
+a=b
+b=c
+console.log(a)
+console.log(c)
+
+let name1="John"
+let name2="Joe"
+let name3="Jack"
+
+console.log(`${name1}, ${name2}, ${name3}`)
+[name1,name2,name3]=[name3,name2,name1]
+console.log(`${name1}, ${name2}, ${name3}`)
+
+</script>
