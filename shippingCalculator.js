@@ -16,6 +16,6 @@ const testItems = [
   { price:5, quantity:4}
   ]
   
-  console.log(testItems,{shipping:10, discount:5})
-  console.log(testItems,{})
-  console.log(testItems,{shipping:3, discount:10})
+  console.log(calculateTotal(testItems,{shipping:10, discount:5}))
+  console.log(calculateTotal(testItems,{}))
+  console.log(calculatTotal(testItems,{shipping:3, discount:10}))
