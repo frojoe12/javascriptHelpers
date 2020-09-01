@@ -20,10 +20,17 @@ function loginUser(email, password, callback) {
   }, 2000)
 }
 
-// add the callback to the function call with the user as the argument
+function getUserVideos(email, callback) {
+  setTimeout(() => {
+    callback(['video1', 'video2', 'video3'])
+  }, 1000)
+}
 
 const user = loginUser('joe@joe.com', '123456', user => {
   console.log(user)
+  getUserVideos(user.userEmail, videos => {
+    console.log(videos)
+  })
 })
 
 console.log('end')
