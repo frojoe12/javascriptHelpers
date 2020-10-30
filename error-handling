@@ -1,0 +1,17 @@
+<script>
+
+  if (true) {
+    let x = 2; // let is block scoped - use var x=2 to use x outside of the block
+  }
+  
+  try { 
+    console.log(x);
+  } 
+  catch(e) {
+    console.error(`CAUGHT ERROR: ${e.message}`) // an alternative is console.warn
+  } 
+  finally {console.log("End of try catch block")}
+  
+  console.log("End of script");
+  
+</script>    
