@@ -1,0 +1,19 @@
+<div id='main'></div>
+<script>
+    'use strict'
+    
+    const request = new XMLHttpRequest()
+    request.open('GET','https://restcountries.com/v3.1/name/australia')
+    request.send()
+    request.addEventListener('load', () => {
+        const [data] = JSON.parse(request.responseText)
+        const data1 = JSON.parse(request.responseText)[0]
+        console.log(data,data1)
+        const main = document.getElementById('main')
+        const imgSrc = `<img src='${data.flags.png}' />`
+        let image = document.createElement('img')
+        image.src=data.flags.png
+        main.appendChild(image)
+    })
+    console.log("end of code")
+</script>
