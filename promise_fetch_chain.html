@@ -1,0 +1,30 @@
+<div id="main"></div>
+<script>
+
+    const renderCountry = (data, className = "main") => {
+        const main = document.getElementById('main')
+        const imgSrc = `<img src='${data.flags.svg}' />`
+        let image = document.createElement('img')
+        image.className = className
+        image.src=data.flags.png
+        main.appendChild(image)
+    }    
+    
+    const getCountryAndNeighbour = (country) => {
+        fetch(`https://restcountries.com/v3.1/name/${country}`)
+            .then(response => response.json())
+            .then(data => {
+                renderCountry(data[0])
+                const neighbour = data[0].borders[0]
+                if (!neighbour) return;
+                return fetch(`https://restcountries.com/v3.1/alpha/${neighbour}`)
+            })
+            .then(response => response.json())
+            .then(data => {
+                renderCountry(data[0])
+            })
+    }
+
+    getCountryAndNeighbour('usa')
+
+</script>
