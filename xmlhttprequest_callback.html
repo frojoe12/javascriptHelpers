@@ -1,0 +1,49 @@
+<style>
+    .main {width:100px;}
+    .neighbour {width:200px;}
+</style>
+<div id='main'></div>
+<script>
+    'use strict'
+
+
+const renderCountry = (data, className = "main") => {
+    const main = document.getElementById('main')
+    const imgSrc = `<img src='${data.flags.png}' />`
+    let image = document.createElement('img')
+    image.className = className
+    image.src=data.flags.png
+    main.appendChild(image)
+}    
+
+const getCountryAndNeighbour = (country) => {
+
+    // Ajax call country 1
+    const request = new XMLHttpRequest()
+    request.open('GET',`https://restcountries.com/v3.1/name/${country}`)
+    request.send()
+    request.addEventListener('load', () => {
+
+        const [data] = JSON.parse(request.responseText)
+
+        // render country 1
+        renderCountry(data)
+
+        // get Neighbour Country
+        const [neighbour] = data.borders;
+        console.log(neighbour)
+        if (!neighbour) {return;}
+        const request2 = new XMLHttpRequest()
+        request2.open('GET',`https://restcountries.com/v3.1/alpha/${neighbour}`)
+        request2.send()
+        request2.addEventListener('load',()=>{
+            const [data2] = JSON.parse(request2.responseText)
+            renderCountry(data2,'neighbour')
+        })
+    })
+}
+    
+    getCountryAndNeighbour('portugal')
+
+    console.log("end of code")
+</script>a
