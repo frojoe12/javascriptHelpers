@@ -1,0 +1,14 @@
+<script>
+    const Address = (address) => {
+        const {name, house, postcode} = address
+        return {
+            getPostcode: ()=>{return postcode}
+        }
+    }
+
+    House1 = Address({name:"Joe",house:"19",postcode:"TR164DP"})
+
+
+    console.log(House1.getPostcode());
+
+</script>
